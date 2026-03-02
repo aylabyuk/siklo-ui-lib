@@ -1,0 +1,81 @@
+/* Field wrapper */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  font-family: var(--font-family-body);
+}
+
+/* Label */
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--semantic-foreground);
+  line-height: var(--line-height-normal);
+}
+
+.required {
+  color: var(--semantic-destructive);
+  margin-left: var(--spacing-1);
+}
+
+/* Input */
+.input {
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-3);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--component-input-foreground);
+  background-color: var(--component-input-background);
+  border: 1px solid var(--component-input-border);
+  border-radius: var(--radii-md);
+  transition:
+    border-color var(--duration-normal) var(--easing-ease-in-out),
+    box-shadow var(--duration-normal) var(--easing-ease-in-out);
+}
+
+.input::placeholder {
+  color: var(--component-input-placeholder);
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--component-input-focus-ring);
+  box-shadow: 0 0 0 1px var(--component-input-focus-ring);
+}
+
+/* Error state */
+.field[data-error] .input {
+  border-color: var(--semantic-destructive);
+}
+
+.field[data-error] .input:focus-visible {
+  border-color: var(--semantic-destructive);
+  box-shadow: 0 0 0 1px var(--semantic-destructive);
+}
+
+/* Disabled state */
+.field[data-disabled] {
+  opacity: 0.5;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+/* Helper & Error text */
+.helper,
+.error {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+}
+
+.helper {
+  color: var(--semantic-muted-foreground);
+}
+
+.error {
+  color: var(--semantic-destructive);
+}
