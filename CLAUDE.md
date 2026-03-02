@@ -489,11 +489,13 @@ We build this step by step. Each phase is self-contained — we verify it works 
 
 ---
 
-### Phase 9b: Figma Code Connect
+### Phase 9b: Figma Code Connect (Storybook Integration)
 
-**Goal:** Link your React components back to their Figma representations using Figma Code Connect, so designers inspecting components in Figma see real production code snippets instead of auto-generated CSS.
+**Goal:** Link React components back to their Figma representations using Figma Code Connect's Storybook integration, so designers inspecting components in Figma see real production code snippets instead of auto-generated CSS.
 
 **Why this matters:** This is specifically listed in CoLab's job posting as a nice-to-have: "Experience leveraging Figma-based workflows to connect design system definitions with production code (e.g., Code Connect, MCP, or similar tools)." This phase directly demonstrates that skill.
+
+**Strategy:** We use the [Storybook integration approach](https://developers.figma.com/docs/code-connect/storybook/) instead of separate `.figma.tsx` files. Code Connect mappings live directly inside each `.stories.tsx` file via `parameters.design`, keeping everything co-located and avoiding file duplication.
 
 **Prerequisites:**
 
@@ -504,18 +506,18 @@ We build this step by step. Each phase is self-contained — we verify it works 
 
 **Steps:**
 
-1. In your "Siklo Design Tokens" Figma file (or a new file), create simple Figma components for each of your 6 React components:
-   - **Button** — create a Figma component with variant properties: `Variant` (primary, secondary, ghost, destructive), `Size` (sm, md, lg), `Disabled` (true/false), `Loading` (true/false)
-   - **Dialog** — a component showing the modal layout (overlay + content card + title + description)
-   - **Select** — trigger + dropdown representation
-   - **Tooltip** — trigger + tooltip bubble with `Side` property (top, right, bottom, left)
-   - **Toast** — notification card with `Variant` property (default, success, error, warning)
-   - **InputField** — label + input + helper text, with `Error` (true/false), `Disabled` (true/false), `Required` (true/false) properties
-2. These don't need to be production-quality designs — they represent the component structure and variant properties. The point is that Code Connect maps Figma properties to React props.
+1. In your "Siklo Design Tokens" Figma file (or a new file), create simple Figma components for each of your React components:
+   - **Button** — variant properties: `Variant` (Primary, Secondary, Ghost, Destructive), `Size` (Small, Medium, Large), `Disabled` (true/false), `Loading` (true/false), `Label` (text)
+   - **Dialog** — properties: `Title` (text), `Description` (text)
+   - **Select** — properties: `Placeholder` (text), `Disabled` (true/false)
+   - **Tooltip** — properties: `Content` (text), `Side` (Top, Right, Bottom, Left)
+   - **Toast** — properties: `Variant` (Default, Success, Error, Warning), `Title` (text), `Description` (text)
+   - **InputField** — properties: `Label` (text), `Placeholder` (text), `Helper Text` (text), `Error` (text), `Disabled` (true/false), `Required` (true/false)
+2. These don't need to be production-quality designs — they represent the component structure and variant properties.
 
 **Checkpoint:** You have Figma components with variant properties that mirror your React component props.
 
-#### Phase 9b-ii: Install and Configure Code Connect
+#### Phase 9b-ii: Install and Add Code Connect to Stories
 
 **Steps:**
 
@@ -523,28 +525,12 @@ We build this step by step. Each phase is self-contained — we verify it works 
    ```bash
    npm install --save-dev @figma/code-connect
    ```
-2. Create a `figma.config.json` in the project root:
-   ```json
-   {
-     "codeConnect": {
-       "parser": "react",
-       "include": ["src/components/**/*.figma.tsx"],
-       "importPaths": {
-         "src/components/*": "siklo"
-       }
-     }
-   }
-   ```
-3. For each component, create a `.figma.tsx` file alongside the component. Example for Button:
-
-   `src/components/Button/Button.figma.tsx`:
+2. In each `.stories.tsx` file, add a `figma.connect()` call and wire it into `parameters.design`. Example for Button:
 
    ```tsx
    import figma from '@figma/code-connect'
 
-   import { Button } from './Button'
-
-   figma.connect(Button, '<FIGMA_COMPONENT_URL>', {
+   const ButtonExample = figma.connect(Button, '<FIGMA_COMPONENT_URL>', {
      props: {
        variant: figma.enum('Variant', {
          Primary: 'primary',
@@ -572,15 +558,29 @@ We build this step by step. Each phase is self-contained — we verify it works 
        </Button>
      ),
    })
+
+   const meta = {
+     title: 'Components/Button',
+     component: Button,
+     parameters: {
+       design: {
+         type: 'figma',
+         url: '<FIGMA_COMPONENT_URL>',
+         examples: [ButtonExample],
+       },
+     },
+     // ... existing argTypes, args, etc.
+   } satisfies Meta<typeof Button>
    ```
 
-4. Repeat for all 6 components, mapping each Figma variant property to the corresponding React prop
+3. Repeat for all components — the `figma.connect()` call goes at the top of each story file, and `parameters.design` is added to the meta
+4. Replace `<FIGMA_COMPONENT_URL>` placeholders with real Figma component URLs once the Figma file is ready
 5. Publish your Code Connect mappings:
    ```bash
    npx figma connect publish
    ```
 
-**Checkpoint:** Open Figma, inspect any of your components, and see the real React code snippet in the "Code" panel — with correct props mapped to the selected Figma variant. For example, selecting the "Destructive + Large" variant of Button shows `<Button variant="destructive" size="lg">`.
+**Checkpoint:** Open Figma, inspect any of your components, and see the real React code snippet in the "Code" panel — with correct props mapped to the selected Figma variant.
 
 #### Phase 9b-iii: Document the Workflow
 
