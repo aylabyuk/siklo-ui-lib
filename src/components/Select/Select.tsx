@@ -22,12 +22,12 @@ export interface SelectTriggerProps extends React.ComponentPropsWithoutRef<
   ref?: React.Ref<HTMLButtonElement>
 }
 
-export function SelectTrigger({
+export const SelectTrigger = ({
   className,
   children,
   ref,
   ...props
-}: SelectTriggerProps) {
+}: SelectTriggerProps) => {
   return (
     <SelectPrimitive.Trigger
       ref={ref}
@@ -50,13 +50,13 @@ export interface SelectContentProps extends React.ComponentPropsWithoutRef<
   ref?: React.Ref<HTMLDivElement>
 }
 
-export function SelectContent({
+export const SelectContent = ({
   className,
   children,
   position = 'popper',
   ref,
   ...props
-}: SelectContentProps) {
+}: SelectContentProps) => {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
@@ -82,12 +82,12 @@ export interface SelectItemProps extends React.ComponentPropsWithoutRef<
   ref?: React.Ref<HTMLDivElement>
 }
 
-export function SelectItem({
+export const SelectItem = ({
   className,
   children,
   ref,
   ...props
-}: SelectItemProps) {
+}: SelectItemProps) => {
   return (
     <SelectPrimitive.Item
       ref={ref}
@@ -104,13 +104,13 @@ export function SelectItem({
 
 /* --------------------------------- Label --------------------------------- */
 
-export function SelectLabel({
+export const SelectLabel = ({
   className,
   ref,
   ...props
 }: React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label> & {
   ref?: React.Ref<HTMLDivElement>
-}) {
+}) => {
   return (
     <SelectPrimitive.Label
       ref={ref}
@@ -122,7 +122,7 @@ export function SelectLabel({
 
 /* --------------------------------- Icons --------------------------------- */
 
-function ChevronDownIcon() {
+const ChevronDownIcon = () => {
   return (
     <svg
       width="16"
@@ -142,7 +142,7 @@ function ChevronDownIcon() {
   )
 }
 
-function CheckIcon() {
+const CheckIcon = () => {
   return (
     <svg
       width="16"

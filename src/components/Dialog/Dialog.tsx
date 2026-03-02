@@ -16,13 +16,13 @@ export const DialogClose = DialogPrimitive.Close
 
 /* -------------------------------- Overlay -------------------------------- */
 
-function DialogOverlay({
+const DialogOverlay = ({
   className,
   ref,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay> & {
   ref?: React.Ref<HTMLDivElement>
-}) {
+}) => {
   return (
     <DialogPrimitive.Overlay
       ref={ref}
@@ -41,13 +41,13 @@ export interface DialogContentProps extends React.ComponentPropsWithoutRef<
   ref?: React.Ref<HTMLDivElement>
 }
 
-export function DialogContent({
+export const DialogContent = ({
   className,
   overlayClassName,
   children,
   ref,
   ...props
-}: DialogContentProps) {
+}: DialogContentProps) => {
   return (
     <DialogPrimitive.Portal>
       <DialogOverlay className={overlayClassName} />
@@ -64,13 +64,13 @@ export function DialogContent({
 
 /* --------------------------------- Title --------------------------------- */
 
-export function DialogTitle({
+export const DialogTitle = ({
   className,
   ref,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> & {
   ref?: React.Ref<HTMLHeadingElement>
-}) {
+}) => {
   return (
     <DialogPrimitive.Title
       ref={ref}
@@ -82,13 +82,13 @@ export function DialogTitle({
 
 /* ------------------------------ Description ------------------------------ */
 
-export function DialogDescription({
+export const DialogDescription = ({
   className,
   ref,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description> & {
   ref?: React.Ref<HTMLParagraphElement>
-}) {
+}) => {
   return (
     <DialogPrimitive.Description
       ref={ref}
