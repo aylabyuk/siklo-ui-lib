@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Changelog" />
+
+# Changelog
+
+All notable changes to this project are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/).
+
+---
+
+## v0.2.0 <span style={{ fontSize: '0.8rem', fontWeight: 400, color: 'var(--semantic-muted-foreground)' }}>— 2026-03-01</span>
+
+### Added
+
+- **Select** component — fully keyboard-navigable dropdown built on Radix Select with grouped items, check indicator, and popper positioning
+- **Tooltip** component — accessible tooltip with configurable placement, delay, and arrow built on Radix Tooltip
+- **Toast** component — notification system with `useToast` hook, `ToastProvider`, four variants (default, success, error, warning), auto-dismiss, swipe-to-dismiss, and action button support
+- **InputField** component — custom accessible form field with auto-generated IDs, label, helper text, error states, and full ARIA wiring
+
+### Changed
+
+- Refactored all components to use `React.FC<Props>` pattern
+
+---
+
+## v0.1.0 <span style={{ fontSize: '0.8rem', fontWeight: 400, color: 'var(--semantic-muted-foreground)' }}>— 2026-02-28</span>
+
+### Added
+
+- Project scaffolding with Vite + React 19 + TypeScript
+- Storybook 10 with a11y addon
+- Vitest 4 with jsdom environment and React Testing Library
+- **Design token pipeline**: Tokens Studio (DTCG format) → Style Dictionary → CSS variables + TypeScript constants
+- **Button** component — primary, secondary, ghost, destructive variants; sm/md/lg sizes; loading spinner; icon slots; `asChild` via Radix Slot
+- **Dialog** component — accessible modal with focus trapping, overlay, enter/exit animations, built on Radix Dialog
