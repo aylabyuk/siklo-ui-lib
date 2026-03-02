@@ -14,96 +14,61 @@ Tokens are the atomic values that drive every component's appearance. They flow 
 
 ### Primitives
 
-<div
-  style={{
-    display: 'grid',
-    gridTemplateColumns: 'repeat(5, 1fr)',
-    gap: '0.5rem',
-    marginBottom: '2rem',
-  }}
->
-  {['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'].map(
-    (shade) => (
-      <div
-        key={`blue-${shade}`}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '0.25rem',
-        }}
-      >
-        <div
-          style={{
-            width: '3rem',
-            height: '3rem',
-            borderRadius: '0.375rem',
-            backgroundColor: `var(--colors-blue-${shade})`,
-            border: '1px solid var(--semantic-border)',
-          }}
-        />
-        <span
-          style={{
-            fontSize: '0.7rem',
-            color: 'var(--semantic-muted-foreground)',
-          }}
-        >
-          blue-{shade}
-        </span>
-      </div>
-    ),
-  )}
-</div>
-
-<div
-  style={{
-    display: 'grid',
-    gridTemplateColumns: 'repeat(5, 1fr)',
-    gap: '0.5rem',
-    marginBottom: '2rem',
-  }}
->
+<div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2rem' }}>
   {[
-    '50',
-    '100',
-    '200',
-    '300',
-    '400',
-    '500',
-    '600',
-    '700',
-    '800',
-    '900',
-    '950',
-  ].map((shade) => (
-    <div
-      key={`slate-${shade}`}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '0.25rem',
-      }}
-    >
-      <div
-        style={{
-          width: '3rem',
-          height: '3rem',
-          borderRadius: '0.375rem',
-          backgroundColor: `var(--colors-slate-${shade})`,
-          border: '1px solid var(--semantic-border)',
-        }}
-      />
-      <span
-        style={{
-          fontSize: '0.7rem',
-          color: 'var(--semantic-muted-foreground)',
-        }}
-      >
-        slate-{shade}
-      </span>
+    { name: 'Blue', prefix: 'blue', shades: ['50','100','200','300','400','500','600','700','800','900'] },
+    { name: 'Slate', prefix: 'slate', shades: ['50','100','200','300','400','500','600','700','800','900','950'] },
+    { name: 'Red', prefix: 'red', shades: ['50','100','200','300','400','500','600','700','800','900'] },
+    { name: 'Green', prefix: 'green', shades: ['50','100','200','300','400','500','600','700','800','900'] },
+    { name: 'Amber', prefix: 'amber', shades: ['50','100','200','300','400','500','600','700','800','900'] },
+  ].map((scale) => (
+    <div key={scale.name}>
+      <div style={{ fontSize: '0.8rem', fontWeight: 600, marginBottom: '0.5rem' }}>
+        {scale.name}
+      </div>
+      <div style={{ display: 'flex', gap: '0' }}>
+        {scale.shades.map((shade, i) => (
+          <div
+            key={shade}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              flex: 1,
+            }}
+          >
+            <div
+              style={{
+                width: '100%',
+                height: '2.5rem',
+                backgroundColor: `var(--colors-${scale.prefix}-${shade})`,
+                borderRadius: i === 0 ? '0.375rem 0 0 0.375rem' : i === scale.shades.length - 1 ? '0 0.375rem 0.375rem 0' : '0',
+              }}
+            />
+            <span style={{ fontSize: '0.6rem', color: 'var(--semantic-muted-foreground)', marginTop: '0.25rem' }}>
+              {shade}
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   ))}
+
+  <div>
+    <div style={{ fontSize: '0.8rem', fontWeight: 600, marginBottom: '0.5rem' }}>
+      Black & White
+    </div>
+    <div style={{ display: 'flex', gap: '0.5rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ width: '3rem', height: '2.5rem', backgroundColor: 'var(--colors-white)', borderRadius: '0.375rem', border: '1px solid var(--semantic-border)' }} />
+        <span style={{ fontSize: '0.6rem', color: 'var(--semantic-muted-foreground)', marginTop: '0.25rem' }}>white</span>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ width: '3rem', height: '2.5rem', backgroundColor: 'var(--colors-black)', borderRadius: '0.375rem' }} />
+        <span style={{ fontSize: '0.6rem', color: 'var(--semantic-muted-foreground)', marginTop: '0.25rem' }}>black</span>
+      </div>
+    </div>
+  </div>
 </div>
 
 ### Semantic Colors
