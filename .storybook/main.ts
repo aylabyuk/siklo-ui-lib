@@ -9,5 +9,13 @@ const config: StorybookConfig = {
   ],
   staticDirs: ['../src/assets'],
   framework: '@storybook/react-vite',
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+    },
+  },
 }
 export default config
