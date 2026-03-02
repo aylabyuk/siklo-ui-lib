@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1](https://github.com/aylabyuk/siklo-ui-lib/compare/v0.3.0...v0.3.1) (2026-03-02)
+
+
+### Added
+
+* make version number dynamic on Welcome page ([122072d](https://github.com/aylabyuk/siklo-ui-lib/commit/122072dcb94d22a392afab96d70531c355a58f43))
+
 ## [0.3.0] - 2026-03-01
 
 ### Added
