@@ -7,6 +7,7 @@ export default create({
   brandTitle: 'Siklo Design System',
   brandUrl: '/',
   brandImage: './siklo-icon-small.svg',
+  brandTarget: '_self',
 
   // Typography
   fontBase: 'Inter, system-ui, sans-serif',
