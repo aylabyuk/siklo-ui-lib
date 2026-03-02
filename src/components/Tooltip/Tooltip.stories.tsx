@@ -5,7 +5,6 @@ import { Tooltip, TooltipProvider } from './Tooltip'
 
 const meta = {
   title: 'Components/Tooltip',
-  component: Tooltip,
   decorators: [
     (Story) => (
       <TooltipProvider delayDuration={200}>
@@ -17,7 +16,7 @@ const meta = {
       </TooltipProvider>
     ),
   ],
-} satisfies Meta<typeof Tooltip>
+} satisfies Meta
 
 export default meta
 type Story = StoryObj<typeof meta>
