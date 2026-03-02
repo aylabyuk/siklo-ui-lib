@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run build:tokens && npm run test && npm run build-storybook",
     "preview": "vite preview",
     "build:tokens": "node src/tokens/style-dictionary.config.ts",
     "test": "vitest run --project unit",
