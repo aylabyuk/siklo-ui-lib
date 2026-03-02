@@ -45,6 +45,7 @@ const meta = {
       examples: [DialogExample],
     },
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Dialog>
 
 export default meta

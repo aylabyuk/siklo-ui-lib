@@ -6,16 +6,26 @@ import styles from './Toast.module.css'
 
 /* --------------------------------- Types --------------------------------- */
 
+/** The visual variant of a toast notification. */
 export type ToastVariant = 'default' | 'success' | 'error' | 'warning'
 
+/** The data shape for a toast notification. */
 export interface ToastData {
+  /** Unique identifier for the toast. */
   id: string
+  /** The primary text of the toast. */
   title: string
+  /** Optional secondary text with additional detail. */
   description?: string
+  /** The visual variant — controls color and icon. */
   variant?: ToastVariant
+  /** Auto-dismiss duration in milliseconds. Overrides the provider default. */
   duration?: number
+  /** An optional action button displayed in the toast. */
   action?: {
+    /** Button label text. */
     label: string
+    /** Callback when the action button is clicked. */
     onClick: () => void
   }
 }
@@ -32,6 +42,7 @@ const ToastContext = createContext<ToastContextValue | null>(null)
 
 /* ---------------------------------- Hook ---------------------------------- */
 
+/** Returns the `toast()` function for imperatively showing notifications. Must be used within a `ToastProvider`. */
 export const useToast = () => {
   const context = useContext(ToastContext)
   if (!context) {
@@ -44,8 +55,11 @@ export const useToast = () => {
 
 let toastCount = 0
 
+/** A notification toast system built on Radix Toast with auto-dismiss, swipe-to-dismiss, and variant support. Use `useToast()` to trigger toasts imperatively. */
 export interface ToastProviderProps {
+  /** App content that can trigger toasts via the `useToast` hook. */
   children: React.ReactNode
+  /** Default auto-dismiss duration in milliseconds. Individual toasts can override this. */
   duration?: number
 }
 

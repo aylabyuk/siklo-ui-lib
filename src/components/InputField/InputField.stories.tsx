@@ -42,6 +42,7 @@ const meta = {
   args: {
     label: 'Email',
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof InputField>
 
 export default meta

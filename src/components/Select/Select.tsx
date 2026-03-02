@@ -4,18 +4,22 @@ import styles from './Select.module.css'
 
 /* ---------------------------------- Root ---------------------------------- */
 
+/** A fully keyboard-navigable dropdown select built on Radix Select. */
 export const Select = SelectPrimitive.Root
 
 /* --------------------------------- Value --------------------------------- */
 
+/** Displays the currently selected value or placeholder text. */
 export const SelectValue = SelectPrimitive.Value
 
 /* --------------------------------- Group --------------------------------- */
 
+/** Groups related select items under a label. */
 export const SelectGroup = SelectPrimitive.Group
 
 /* -------------------------------- Trigger -------------------------------- */
 
+/** The button that opens the select dropdown. Includes a chevron icon. */
 export interface SelectTriggerProps extends React.ComponentPropsWithoutRef<
   typeof SelectPrimitive.Trigger
 > {
@@ -44,6 +48,7 @@ export const SelectTrigger: React.FC<SelectTriggerProps> = ({
 
 /* -------------------------------- Content -------------------------------- */
 
+/** The dropdown panel containing select items, rendered in a portal. */
 export interface SelectContentProps extends React.ComponentPropsWithoutRef<
   typeof SelectPrimitive.Content
 > {
@@ -76,6 +81,7 @@ export const SelectContent: React.FC<SelectContentProps> = ({
 
 /* --------------------------------- Item --------------------------------- */
 
+/** An individual option within the select dropdown. Shows a check icon when selected. */
 export interface SelectItemProps extends React.ComponentPropsWithoutRef<
   typeof SelectPrimitive.Item
 > {
@@ -104,6 +110,7 @@ export const SelectItem: React.FC<SelectItemProps> = ({
 
 /* --------------------------------- Label --------------------------------- */
 
+/** A non-interactive label for a group of select items. */
 export const SelectLabel: React.FC<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label> & {
     ref?: React.Ref<HTMLDivElement>

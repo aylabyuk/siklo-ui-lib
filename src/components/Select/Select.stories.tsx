@@ -47,6 +47,7 @@ const meta = {
       examples: [SelectExample],
     },
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Select>
 
 export default meta

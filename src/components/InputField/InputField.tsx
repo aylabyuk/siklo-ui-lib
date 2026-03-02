@@ -2,6 +2,7 @@ import { useId } from 'react'
 
 import styles from './InputField.module.css'
 
+/** An accessible form field with auto-wired label, helper text, and error states. Automatically generates IDs and ARIA attributes. */
 export interface InputFieldProps extends Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   'id'

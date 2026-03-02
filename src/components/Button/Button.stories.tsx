@@ -60,6 +60,7 @@ const meta = {
     variant: 'primary',
     size: 'md',
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Button>
 
 export default meta
