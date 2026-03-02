@@ -618,19 +618,22 @@ We build this step by step. Each phase is self-contained — we verify it works 
 2. Create `.github/workflows/ci.yml` (optional, for PRs):
    - Trigger: pull request
    - Steps: checkout → install → build tokens → run tests → build storybook (verify it builds)
-3. Configure `package.json` scripts:
+3. Automate changelog generation:
+   - Add a GitHub Action or script to auto-generate/validate `CHANGELOG.md` entries on merge to `main`
+   - Consider tools like `conventional-changelog` or `changeset` for automation
+4. Configure `package.json` scripts:
    - `"build:tokens"` — run Style Dictionary
    - `"test"` — run Vitest
    - `"storybook"` — dev server
    - `"build-storybook"` — production build
    - `"build"` — full pipeline: tokens → test → build-storybook
-4. Add a `README.md`:
+5. Add a `README.md`:
    - Project overview, live Storybook link, architecture diagram
    - Token pipeline diagram: `Figma (Tokens Studio) → JSON Export → Style Dictionary → CSS Variables + TS Constants → Components → Storybook`
    - Link to the Figma token file
    - Local setup instructions
    - Component list with status
-5. Final review:
+6. Final review:
    - All 6 components have stories, tests, and docs
    - All tests pass
    - Storybook builds cleanly
