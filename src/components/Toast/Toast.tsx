@@ -49,10 +49,10 @@ export interface ToastProviderProps {
   duration?: number
 }
 
-export const ToastProvider = ({
+export const ToastProvider: React.FC<ToastProviderProps> = ({
   children,
   duration = 5000,
-}: ToastProviderProps) => {
+}) => {
   const [toasts, setToasts] = useState<ToastData[]>([])
 
   const toast = useCallback((input: ToastInput) => {
@@ -84,7 +84,7 @@ interface ToastItemProps {
   onClose: () => void
 }
 
-const ToastItem = ({ toast: t, onClose }: ToastItemProps) => {
+const ToastItem: React.FC<ToastItemProps> = ({ toast: t, onClose }) => {
   return (
     <ToastPrimitive.Root
       className={styles.root}
@@ -124,7 +124,7 @@ const ToastItem = ({ toast: t, onClose }: ToastItemProps) => {
 
 /* --------------------------------- Icons --------------------------------- */
 
-const CloseIcon = () => {
+const CloseIcon: React.FC = () => {
   return (
     <svg
       width="16"

@@ -12,7 +12,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   ref?: React.Ref<HTMLButtonElement>
 }
 
-export const Button = ({
+export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
   loading = false,
@@ -24,7 +24,7 @@ export const Button = ({
   className,
   ref,
   ...props
-}: ButtonProps) => {
+}) => {
   const Comp = asChild ? Slot : 'button'
   const isDisabled = disabled || loading
 

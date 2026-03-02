@@ -16,13 +16,11 @@ export const DialogClose = DialogPrimitive.Close
 
 /* -------------------------------- Overlay -------------------------------- */
 
-const DialogOverlay = ({
-  className,
-  ref,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay> & {
-  ref?: React.Ref<HTMLDivElement>
-}) => {
+const DialogOverlay: React.FC<
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay> & {
+    ref?: React.Ref<HTMLDivElement>
+  }
+> = ({ className, ref, ...props }) => {
   return (
     <DialogPrimitive.Overlay
       ref={ref}
@@ -41,13 +39,13 @@ export interface DialogContentProps extends React.ComponentPropsWithoutRef<
   ref?: React.Ref<HTMLDivElement>
 }
 
-export const DialogContent = ({
+export const DialogContent: React.FC<DialogContentProps> = ({
   className,
   overlayClassName,
   children,
   ref,
   ...props
-}: DialogContentProps) => {
+}) => {
   return (
     <DialogPrimitive.Portal>
       <DialogOverlay className={overlayClassName} />
@@ -64,13 +62,11 @@ export const DialogContent = ({
 
 /* --------------------------------- Title --------------------------------- */
 
-export const DialogTitle = ({
-  className,
-  ref,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> & {
-  ref?: React.Ref<HTMLHeadingElement>
-}) => {
+export const DialogTitle: React.FC<
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> & {
+    ref?: React.Ref<HTMLHeadingElement>
+  }
+> = ({ className, ref, ...props }) => {
   return (
     <DialogPrimitive.Title
       ref={ref}
@@ -82,13 +78,11 @@ export const DialogTitle = ({
 
 /* ------------------------------ Description ------------------------------ */
 
-export const DialogDescription = ({
-  className,
-  ref,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description> & {
-  ref?: React.Ref<HTMLParagraphElement>
-}) => {
+export const DialogDescription: React.FC<
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description> & {
+    ref?: React.Ref<HTMLParagraphElement>
+  }
+> = ({ className, ref, ...props }) => {
   return (
     <DialogPrimitive.Description
       ref={ref}

@@ -17,7 +17,7 @@ export interface InputFieldProps extends Omit<
   ref?: React.Ref<HTMLInputElement>
 }
 
-export const InputField = ({
+export const InputField: React.FC<InputFieldProps> = ({
   label,
   helperText,
   error,
@@ -27,7 +27,7 @@ export const InputField = ({
   className,
   ref,
   ...inputProps
-}: InputFieldProps) => {
+}) => {
   const autoId = useId()
   const id = idProp ?? autoId
   const helperId = helperText && !error ? `${id}-helper` : undefined

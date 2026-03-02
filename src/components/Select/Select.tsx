@@ -22,12 +22,12 @@ export interface SelectTriggerProps extends React.ComponentPropsWithoutRef<
   ref?: React.Ref<HTMLButtonElement>
 }
 
-export const SelectTrigger = ({
+export const SelectTrigger: React.FC<SelectTriggerProps> = ({
   className,
   children,
   ref,
   ...props
-}: SelectTriggerProps) => {
+}) => {
   return (
     <SelectPrimitive.Trigger
       ref={ref}
@@ -50,13 +50,13 @@ export interface SelectContentProps extends React.ComponentPropsWithoutRef<
   ref?: React.Ref<HTMLDivElement>
 }
 
-export const SelectContent = ({
+export const SelectContent: React.FC<SelectContentProps> = ({
   className,
   children,
   position = 'popper',
   ref,
   ...props
-}: SelectContentProps) => {
+}) => {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
@@ -82,12 +82,12 @@ export interface SelectItemProps extends React.ComponentPropsWithoutRef<
   ref?: React.Ref<HTMLDivElement>
 }
 
-export const SelectItem = ({
+export const SelectItem: React.FC<SelectItemProps> = ({
   className,
   children,
   ref,
   ...props
-}: SelectItemProps) => {
+}) => {
   return (
     <SelectPrimitive.Item
       ref={ref}
@@ -104,13 +104,11 @@ export const SelectItem = ({
 
 /* --------------------------------- Label --------------------------------- */
 
-export const SelectLabel = ({
-  className,
-  ref,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label> & {
-  ref?: React.Ref<HTMLDivElement>
-}) => {
+export const SelectLabel: React.FC<
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label> & {
+    ref?: React.Ref<HTMLDivElement>
+  }
+> = ({ className, ref, ...props }) => {
   return (
     <SelectPrimitive.Label
       ref={ref}
@@ -122,7 +120,7 @@ export const SelectLabel = ({
 
 /* --------------------------------- Icons --------------------------------- */
 
-const ChevronDownIcon = () => {
+const ChevronDownIcon: React.FC = () => {
   return (
     <svg
       width="16"
@@ -142,7 +140,7 @@ const ChevronDownIcon = () => {
   )
 }
 
-const CheckIcon = () => {
+const CheckIcon: React.FC = () => {
   return (
     <svg
       width="16"

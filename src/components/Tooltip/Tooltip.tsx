@@ -19,7 +19,7 @@ export interface TooltipProps {
   onOpenChange?: (open: boolean) => void
 }
 
-export const Tooltip = ({
+export const Tooltip: React.FC<TooltipProps> = ({
   content,
   side = 'top',
   align = 'center',
@@ -28,7 +28,7 @@ export const Tooltip = ({
   open,
   defaultOpen,
   onOpenChange,
-}: TooltipProps) => {
+}) => {
   return (
     <TooltipPrimitive.Root
       open={open}
