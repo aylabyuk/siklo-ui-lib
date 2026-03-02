@@ -18,18 +18,18 @@ This project demonstrates the skills required for a Senior UI Developer role foc
 
 ## Tech Stack
 
-| Tool                  | Role                                         |
-| --------------------- | -------------------------------------------- |
-| React 18              | UI framework                                 |
-| TypeScript            | Type safety across components and tokens     |
-| Radix UI              | Headless, accessible component primitives    |
-| Style Dictionary      | Design token transformation pipeline         |
-| Storybook 8           | Component documentation, controls, a11y      |
-| Vitest                | Unit/component test runner                   |
-| React Testing Library | DOM-based component testing                  |
-| CSS Modules           | Scoped, token-driven component styles        |
-| GitHub Actions        | CI pipeline + Storybook deployment           |
-| GitHub Pages          | Hosted Storybook for sharing                 |
+| Tool                  | Role                                      |
+| --------------------- | ----------------------------------------- |
+| React 18              | UI framework                              |
+| TypeScript            | Type safety across components and tokens  |
+| Radix UI              | Headless, accessible component primitives |
+| Style Dictionary      | Design token transformation pipeline      |
+| Storybook 8           | Component documentation, controls, a11y   |
+| Vitest                | Unit/component test runner                |
+| React Testing Library | DOM-based component testing               |
+| CSS Modules           | Scoped, token-driven component styles     |
+| GitHub Actions        | CI pipeline + Storybook deployment        |
+| GitHub Pages          | Hosted Storybook for sharing              |
 
 ---
 
@@ -143,6 +143,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** Run `npm run storybook` and see the placeholder story. Run `npm run test` and see a passing placeholder test.
 
 **What you'll learn:**
+
 - How Vite, Storybook 8, and Vitest are configured together
 - The role of each config file
 - Why we separate `.storybook/` from `src/`
@@ -198,6 +199,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** Tokens are defined in Figma and exported as JSON files in `src/tokens/figma-export/`. You can see the token structure and references in the JSON.
 
 **What you'll learn:**
+
 - How Tokens Studio organizes tokens into sets (primitive vs semantic)
 - How token aliasing/referencing works (`{colors.blue.600}` syntax)
 - The Figma-side workflow that designers use to maintain a design system
@@ -222,6 +224,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** Run `npm run build:tokens` and see generated CSS + TS files. Change a value in the exported JSON, rebuild, and see it update everywhere.
 
 **What you'll learn:**
+
 - How Style Dictionary transforms and resolves token references
 - Handling the DTCG token format (W3C design token spec) that Tokens Studio exports
 - The full pipeline: Figma → Tokens Studio → JSON → Style Dictionary → CSS variables + TS constants → consumed by components → documented in Storybook
@@ -261,6 +264,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** All Button stories render in Storybook with working controls and a11y panel clean. All tests pass.
 
 **What you'll learn:**
+
 - The pattern: Radix primitive → token-driven styles → stories → tests
 - How `asChild` and Radix `Slot` enable polymorphic components
 - How to use data attributes for variant styling (vs className string manipulation)
@@ -298,6 +302,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** Dialog works with full keyboard navigation in Storybook. A11y panel clean. Tests pass.
 
 **What you'll learn:**
+
 - How Radix handles focus trapping and restoration automatically
 - Composing multiple Radix sub-components into a clean public API
 - CSS animation patterns with `data-state` attributes
@@ -334,6 +339,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** Select is fully navigable via keyboard in Storybook. Tests pass.
 
 **What you'll learn:**
+
 - Radix Select's complex composition model
 - How `[data-highlighted]` works for keyboard-driven focus
 - ARIA listbox pattern
@@ -367,6 +373,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** Tooltip works on hover and keyboard focus. Tests pass.
 
 **What you'll learn:**
+
 - Radix Tooltip's Provider pattern for global config
 - How tooltips must be accessible via keyboard, not just mouse
 - Testing hover and focus interactions
@@ -404,6 +411,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** Toast system works imperatively via hook. Multiple toasts stack. Tests pass.
 
 **What you'll learn:**
+
 - Building a context + hook pattern for imperative component usage
 - Radix Toast's swipe gesture support
 - ARIA live region patterns (status vs alert)
@@ -441,6 +449,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** InputField handles all states cleanly. Accessibility wiring is correct. Tests pass.
 
 **What you'll learn:**
+
 - Building accessible form patterns without a headless library
 - The importance of ARIA attribute wiring (describedby, invalid, required)
 - Why auto-generated IDs matter for reusable form components
@@ -473,6 +482,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** Storybook feels like a polished, professional design system site — not just a dev tool.
 
 **What you'll learn:**
+
 - How Storybook MDX pages work for custom documentation
 - The difference between Storybook as a playground vs. a system of record
 - How to brand Storybook itself
@@ -486,6 +496,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Why this matters:** This is specifically listed in CoLab's job posting as a nice-to-have: "Experience leveraging Figma-based workflows to connect design system definitions with production code (e.g., Code Connect, MCP, or similar tools)." This phase directly demonstrates that skill.
 
 **Prerequisites:**
+
 - A Figma file with your components represented as Figma components (doesn't need to be pixel-perfect — simple rectangles with correct variant properties are enough)
 - A Figma access token (free, from your Figma account settings)
 
@@ -527,26 +538,28 @@ We build this step by step. Each phase is self-contained — we verify it works 
 3. For each component, create a `.figma.tsx` file alongside the component. Example for Button:
 
    `src/components/Button/Button.figma.tsx`:
-   ```tsx
-   import figma from "@figma/code-connect";
-   import { Button } from "./Button";
 
-   figma.connect(Button, "<FIGMA_COMPONENT_URL>", {
+   ```tsx
+   import figma from '@figma/code-connect'
+
+   import { Button } from './Button'
+
+   figma.connect(Button, '<FIGMA_COMPONENT_URL>', {
      props: {
-       variant: figma.enum("Variant", {
-         Primary: "primary",
-         Secondary: "secondary",
-         Ghost: "ghost",
-         Destructive: "destructive",
+       variant: figma.enum('Variant', {
+         Primary: 'primary',
+         Secondary: 'secondary',
+         Ghost: 'ghost',
+         Destructive: 'destructive',
        }),
-       size: figma.enum("Size", {
-         Small: "sm",
-         Medium: "md",
-         Large: "lg",
+       size: figma.enum('Size', {
+         Small: 'sm',
+         Medium: 'md',
+         Large: 'lg',
        }),
-       disabled: figma.boolean("Disabled"),
-       loading: figma.boolean("Loading"),
-       label: figma.string("Label"),
+       disabled: figma.boolean('Disabled'),
+       loading: figma.boolean('Loading'),
+       label: figma.string('Label'),
      },
      example: (props) => (
        <Button
@@ -558,7 +571,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
          {props.label}
        </Button>
      ),
-   });
+   })
    ```
 
 4. Repeat for all 6 components, mapping each Figma variant property to the corresponding React prop
@@ -584,6 +597,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** A viewer of your Storybook or README can understand the complete Figma ↔ Code workflow.
 
 **What you'll learn:**
+
 - How Code Connect bridges the gap between design and engineering
 - Mapping Figma variant properties to React props
 - The difference between token sync (Tokens Studio) and component sync (Code Connect)
@@ -625,6 +639,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 **Checkpoint:** Push to `main` triggers a deploy. Live Storybook URL is shareable with CoLab.
 
 **What you'll learn:**
+
 - GitHub Actions workflow for frontend projects
 - How to chain token builds → tests → deployments
 - Presenting your work publicly
@@ -636,6 +651,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 These rules apply across all phases:
 
 ### Components
+
 - Every component must be fully keyboard navigable
 - Every component must pass Storybook's a11y addon audit with zero violations
 - Use `data-*` attributes for variant/state styling, not className string construction
@@ -643,26 +659,31 @@ These rules apply across all phases:
 - Props interfaces are explicitly defined and exported (e.g., `export interface ButtonProps`)
 
 ### Tokens
+
 - Never hardcode colors, spacing, font sizes, shadows, or radii in component CSS
 - Always reference CSS custom properties: `var(--color-primary)`, `var(--spacing-4)`
 - Semantic tokens reference primitive tokens — components reference semantic tokens
 
 ### Styles
+
 - CSS Modules for scoping (`.module.css`)
 - No inline styles except for truly dynamic values (e.g., computed widths)
 - Follow the cascade: base → variant → state → interactive (hover/focus/active)
 
 ### Stories
+
 - Every component needs at minimum: a Default story, a Docs page, and variant stories
 - Use `args` and `argTypes` for interactive controls
 - Group related stories logically
 
 ### Tests
+
 - Test behavior, not implementation
 - Every component needs: render test, interaction test, accessibility test, keyboard nav test
 - Use `screen.getByRole()` over `getByTestId()` — if you can't find it by role, it's probably not accessible
 
 ### Git
+
 - Conventional commits: `feat:`, `fix:`, `docs:`, `test:`, `chore:`
 - One phase = one branch → PR → merge to main
 - Each PR should include: code + stories + tests + docs
@@ -684,16 +705,16 @@ npm run build             # Full pipeline: tokens → test → build
 
 ## Key Decisions & Rationale
 
-| Decision | Rationale |
-|---|---|
-| Radix UI over building from scratch | Focus on composition and DX, not re-inventing ARIA patterns |
-| CSS Modules over Tailwind | Shows understanding of CSS architecture; token-driven styling is more visible |
-| Style Dictionary over hardcoded variables | Demonstrates the full Figma → code pipeline with real token transformation |
-| Tokens Studio as token source | Industry-standard Figma plugin; exports DTCG-spec JSON; shows real designer-developer workflow |
-| Figma Code Connect | Directly maps Figma component variants to React props; listed in CoLab's job posting as a desired skill |
-| Vitest over Jest | Faster, native ESM, integrates with Vite |
-| data-attributes for variants | Cleaner than className strings, works well with CSS selectors |
-| Storybook 8 | Latest features: improved docs, faster builds, better TypeScript support |
+| Decision                                  | Rationale                                                                                               |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Radix UI over building from scratch       | Focus on composition and DX, not re-inventing ARIA patterns                                             |
+| CSS Modules over Tailwind                 | Shows understanding of CSS architecture; token-driven styling is more visible                           |
+| Style Dictionary over hardcoded variables | Demonstrates the full Figma → code pipeline with real token transformation                              |
+| Tokens Studio as token source             | Industry-standard Figma plugin; exports DTCG-spec JSON; shows real designer-developer workflow          |
+| Figma Code Connect                        | Directly maps Figma component variants to React props; listed in CoLab's job posting as a desired skill |
+| Vitest over Jest                          | Faster, native ESM, integrates with Vite                                                                |
+| data-attributes for variants              | Cleaner than className strings, works well with CSS selectors                                           |
+| Storybook 8                               | Latest features: improved docs, faster builds, better TypeScript support                                |
 
 ---
 
@@ -701,7 +722,7 @@ npm run build             # Full pipeline: tokens → test → build
 
 - [Radix UI Docs](https://www.radix-ui.com/primitives)
 - [Storybook 8 Docs](https://storybook.js.org/docs)
-- [Style Dictionary Docs](https://amzn.github.io/style-dictionary)
+- [Style Dictionary Docs](https://styledictionary.com/getting-started/installation/)
 - [Tokens Studio Docs](https://docs.tokens.studio/)
 - [Figma Code Connect Docs](https://www.figma.com/developers/code-connect)
 - [W3C Design Token Community Group (DTCG) Spec](https://design-tokens.github.io/community-group/format/)
