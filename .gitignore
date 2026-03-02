@@ -5,3 +5,6 @@ dist
 
 *storybook.log
 storybook-static
+
+# Generated token build output
+src/tokens/build/
