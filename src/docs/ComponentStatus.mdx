@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Component Status" />
+
+# Component Status
+
+Overview of all components in the Siklo Design System.
+
+| Component  | Status    | Tests | Radix | Description                                                                                              |
+| ---------- | --------- | ----- | ----- | -------------------------------------------------------------------------------------------------------- |
+| Button     | ✅ Stable | 13    | Yes   | Primary actions with variants, sizes, loading state, icon slots, and polymorphic rendering via `asChild` |
+| Dialog     | ✅ Stable | 7     | Yes   | Modal dialog with focus trapping, overlay, keyboard dismiss, and enter/exit animations                   |
+| Select     | ✅ Stable | 9     | Yes   | Keyboard-navigable dropdown with grouped items, check indicator, and popper positioning                  |
+| Tooltip    | ✅ Stable | 6     | Yes   | Accessible tooltip with configurable placement, delay, and arrow                                         |
+| Toast      | ✅ Stable | 7     | Yes   | Notification system with `useToast` hook, four variants, auto-dismiss, and swipe-to-dismiss              |
+| InputField | ✅ Stable | 12    | No    | Form field with auto-generated IDs, label, helper text, error states, and full ARIA wiring               |
+
+**Total: 54 unit tests + 34 Storybook tests = 88 tests**
+
+---
+
+## Accessibility
+
+Every component meets these requirements:
+
+- Full keyboard navigation
+- Correct ARIA roles and attributes
+- Focus management (trapping, restoration)
+- Screen-reader announcements
+- Storybook a11y addon audit with zero violations
+
+---
+
+## Token Coverage
+
+All components use design tokens exclusively — no hardcoded values for:
+
+- Colors
+- Spacing
+- Typography
+- Border radius
+- Shadows
+- Motion (durations, easings)

@@ -1,9 +1,13 @@
 import type { Preview } from '@storybook/react-vite'
 
 import '../src/tokens/build/variables.css'
+import theme from './theme'
 
 const preview: Preview = {
   parameters: {
+    docs: {
+      theme,
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

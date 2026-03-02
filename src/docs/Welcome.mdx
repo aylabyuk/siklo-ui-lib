@@ -1,0 +1,64 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Welcome" />
+
+# Siklo Design System
+
+A production-grade React component library built on **Radix UI** primitives, powered by **design tokens**, documented in **Storybook**, and fully tested.
+
+---
+
+## Architecture
+
+```
+Figma (Tokens Studio)
+        ↓
+   JSON Export (DTCG spec)
+        ↓
+   Style Dictionary
+        ↓
+CSS Variables + TS Constants
+        ↓
+   React Components (Radix UI + CSS Modules)
+        ↓
+   Storybook (docs, a11y, controls)
+        ↓
+   Vitest + React Testing Library
+```
+
+---
+
+## Tech Stack
+
+| Tool                  | Role                                      |
+| --------------------- | ----------------------------------------- |
+| React 19              | UI framework                              |
+| TypeScript            | Type safety across components and tokens  |
+| Radix UI              | Headless, accessible component primitives |
+| Style Dictionary      | Design token transformation pipeline      |
+| Storybook 10          | Component documentation and controls      |
+| Vitest                | Unit and component test runner            |
+| React Testing Library | DOM-based component testing               |
+| CSS Modules           | Scoped, token-driven component styles     |
+
+---
+
+## Components
+
+| Component  | Description                                          |
+| ---------- | ---------------------------------------------------- |
+| Button     | Primary actions with variants, sizes, loading, icons |
+| Dialog     | Modal with focus trapping and animations             |
+| Select     | Keyboard-navigable dropdown                          |
+| Tooltip    | Accessible tooltip with placement options            |
+| Toast      | Notification system with imperative API              |
+| InputField | Form field with label, helper text, and error states |
+
+---
+
+## Principles
+
+- **Accessible by default** — every component is keyboard navigable and screen-reader friendly
+- **Token-driven** — no hardcoded values; all styles reference design tokens
+- **Composable** — built on Radix primitives for maximum flexibility
+- **Tested** — behavior-driven tests with React Testing Library

@@ -1,0 +1,86 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Getting Started" />
+
+# Getting Started
+
+## Installation
+
+```bash
+npm install siklo
+```
+
+## Import Tokens
+
+Import the CSS variables globally in your app entry point:
+
+```tsx
+import 'siklo/tokens/build/variables.css'
+```
+
+This gives you access to all design tokens as CSS custom properties.
+
+## Import Components
+
+```tsx
+import { Button, Dialog, InputField, Select, Tooltip } from 'siklo'
+```
+
+## Toast Setup
+
+The Toast component requires a provider at the root of your app:
+
+```tsx
+import { ToastProvider, useToast } from 'siklo'
+
+function App() {
+  return (
+    <ToastProvider>
+      <YourApp />
+    </ToastProvider>
+  )
+}
+
+function YourApp() {
+  const { toast } = useToast()
+
+  return (
+    <Button onClick={() => toast({ title: 'Saved!', variant: 'success' })}>
+      Save
+    </Button>
+  )
+}
+```
+
+## Tooltip Setup
+
+Tooltips require a provider for shared delay configuration:
+
+```tsx
+import { Tooltip, TooltipProvider } from 'siklo'
+
+function App() {
+  return (
+    <TooltipProvider delayDuration={200}>
+      <Tooltip content="Save changes">
+        <Button>Save</Button>
+      </Tooltip>
+    </TooltipProvider>
+  )
+}
+```
+
+## Using Tokens in CSS
+
+All tokens are available as CSS custom properties:
+
+```css
+.my-component {
+  color: var(--semantic-foreground);
+  background: var(--semantic-background);
+  padding: var(--spacing-4);
+  border-radius: var(--radii-md);
+  font-family: var(--font-family-body);
+  transition: all var(--duration-normal) var(--easing-ease-in-out);
+}
+```
