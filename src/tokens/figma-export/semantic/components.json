@@ -1,0 +1,29 @@
+{
+  "component": {
+    "button": {
+      "primary-bg": { "$value": "{semantic.primary}", "$type": "color" },
+      "primary-text": { "$value": "{semantic.primary-foreground}", "$type": "color" },
+      "secondary-bg": { "$value": "{semantic.secondary}", "$type": "color" },
+      "secondary-text": { "$value": "{semantic.secondary-foreground}", "$type": "color" },
+      "destructive-bg": { "$value": "{semantic.destructive}", "$type": "color" },
+      "destructive-text": { "$value": "{semantic.destructive-foreground}", "$type": "color" }
+    },
+    "input": {
+      "border": { "$value": "{semantic.border}", "$type": "color" },
+      "focus-ring": { "$value": "{semantic.ring}", "$type": "color" },
+      "background": { "$value": "{semantic.background}", "$type": "color" },
+      "foreground": { "$value": "{semantic.foreground}", "$type": "color" },
+      "placeholder": { "$value": "{semantic.muted-foreground}", "$type": "color" }
+    },
+    "toast": {
+      "default-bg": { "$value": "{semantic.background}", "$type": "color" },
+      "default-text": { "$value": "{semantic.foreground}", "$type": "color" },
+      "success-bg": { "$value": "{colors.green.50}", "$type": "color" },
+      "success-text": { "$value": "{colors.green.800}", "$type": "color" },
+      "error-bg": { "$value": "{colors.red.50}", "$type": "color" },
+      "error-text": { "$value": "{colors.red.800}", "$type": "color" },
+      "warning-bg": { "$value": "{colors.amber.50}", "$type": "color" },
+      "warning-text": { "$value": "{colors.amber.800}", "$type": "color" }
+    }
+  }
+}
