@@ -1,0 +1,192 @@
+/* Viewport — positioned bottom-right */
+.viewport {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  width: 24rem;
+  max-width: calc(100vw - var(--spacing-4));
+  padding: var(--spacing-4);
+  list-style: none;
+  outline: none;
+}
+
+/* Toast root */
+.root {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  background-color: var(--component-toast-default-bg);
+  border: 1px solid var(--semantic-border);
+  border-radius: var(--radii-lg);
+  box-shadow: var(--shadow-lg);
+  font-family: var(--font-family-body);
+}
+
+/* Variant styles */
+.root[data-variant='success'] {
+  background-color: var(--component-toast-success-bg);
+  border-color: var(--component-toast-success-text);
+  color: var(--component-toast-success-text);
+}
+
+.root[data-variant='error'] {
+  background-color: var(--component-toast-error-bg);
+  border-color: var(--component-toast-error-text);
+  color: var(--component-toast-error-text);
+}
+
+.root[data-variant='warning'] {
+  background-color: var(--component-toast-warning-bg);
+  border-color: var(--component-toast-warning-text);
+  color: var(--component-toast-warning-text);
+}
+
+/* Slide animations */
+.root[data-state='open'] {
+  animation: slideIn var(--duration-normal) var(--easing-ease-out);
+}
+
+.root[data-state='closed'] {
+  animation: slideOut var(--duration-fast) var(--easing-ease-in);
+}
+
+.root[data-swipe='move'] {
+  transform: translateX(var(--radix-toast-swipe-move-x));
+}
+
+.root[data-swipe='cancel'] {
+  transform: translateX(0);
+  transition: transform var(--duration-normal) var(--easing-ease-out);
+}
+
+.root[data-swipe='end'] {
+  animation: swipeOut var(--duration-fast) var(--easing-ease-out);
+}
+
+/* Body — title + description */
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: inherit;
+}
+
+.description {
+  margin-top: var(--spacing-1);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  color: inherit;
+  opacity: 0.85;
+}
+
+/* Default variant text colors */
+.root[data-variant='default'] .title {
+  color: var(--component-toast-default-text);
+}
+
+.root[data-variant='default'] .description {
+  color: var(--semantic-muted-foreground);
+}
+
+/* Actions — action button + close */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  flex-shrink: 0;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-1) var(--spacing-2);
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: var(--radii-sm);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: inherit;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--easing-ease-in-out);
+}
+
+.action:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--semantic-ring);
+  outline-offset: 2px;
+}
+
+.close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radii-sm);
+  color: inherit;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity var(--duration-fast) var(--easing-ease-in-out);
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--semantic-ring);
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+/* Keyframes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes swipeOut {
+  from {
+    opacity: 1;
+    transform: translateX(var(--radix-toast-swipe-end-x));
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
