@@ -224,14 +224,52 @@ Tokens are the atomic values that drive every component's appearance. They flow 
   </div>
 </div>
 
-| Token            | Value    | CSS Variable       |
-| ---------------- | -------- | ------------------ |
-| `font-size-xs`   | 0.75rem  | `--font-size-xs`   |
-| `font-size-sm`   | 0.875rem | `--font-size-sm`   |
-| `font-size-base` | 1rem     | `--font-size-base` |
-| `font-size-lg`   | 1.125rem | `--font-size-lg`   |
-| `font-size-xl`   | 1.25rem  | `--font-size-xl`   |
-| `font-size-2xl`  | 1.5rem   | `--font-size-2xl`  |
+<table
+  style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}
+>
+  <thead>
+    <tr style={{ borderBottom: '2px solid var(--semantic-border)' }}>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Token
+      </th>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Value
+      </th>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        CSS Variable
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      ['font-size-xs', '0.75rem', '--font-size-xs'],
+      ['font-size-sm', '0.875rem', '--font-size-sm'],
+      ['font-size-base', '1rem', '--font-size-base'],
+      ['font-size-lg', '1.125rem', '--font-size-lg'],
+      ['font-size-xl', '1.25rem', '--font-size-xl'],
+      ['font-size-2xl', '1.5rem', '--font-size-2xl'],
+    ].map(([token, value, cssVar]) => (
+      <tr
+        key={token}
+        style={{ borderBottom: '1px solid var(--semantic-border)' }}
+      >
+        <td style={{ padding: '0.5rem 1rem' }}>
+          <code>{token}</code>
+        </td>
+        <td style={{ padding: '0.5rem 1rem' }}>{value}</td>
+        <td style={{ padding: '0.5rem 1rem' }}>
+          <code>{cssVar}</code>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
 
 ---
 
@@ -367,11 +405,53 @@ Tokens are the atomic values that drive every component's appearance. They flow 
 
 ## Motion
 
-| Token                | Value                        | CSS Variable           |
-| -------------------- | ---------------------------- | ---------------------- |
-| `duration-fast`      | 100ms                        | `--duration-fast`      |
-| `duration-normal`    | 200ms                        | `--duration-normal`    |
-| `duration-slow`      | 300ms                        | `--duration-slow`      |
-| `easing-ease-in`     | cubic-bezier(0.4, 0, 1, 1)   | `--easing-ease-in`     |
-| `easing-ease-out`    | cubic-bezier(0, 0, 0.2, 1)   | `--easing-ease-out`    |
-| `easing-ease-in-out` | cubic-bezier(0.4, 0, 0.2, 1) | `--easing-ease-in-out` |
+<table
+  style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}
+>
+  <thead>
+    <tr style={{ borderBottom: '2px solid var(--semantic-border)' }}>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Token
+      </th>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Value
+      </th>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        CSS Variable
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      ['duration-fast', '100ms', '--duration-fast'],
+      ['duration-normal', '200ms', '--duration-normal'],
+      ['duration-slow', '300ms', '--duration-slow'],
+      ['easing-ease-in', 'cubic-bezier(0.4, 0, 1, 1)', '--easing-ease-in'],
+      ['easing-ease-out', 'cubic-bezier(0, 0, 0.2, 1)', '--easing-ease-out'],
+      [
+        'easing-ease-in-out',
+        'cubic-bezier(0.4, 0, 0.2, 1)',
+        '--easing-ease-in-out',
+      ],
+    ].map(([token, value, cssVar]) => (
+      <tr
+        key={token}
+        style={{ borderBottom: '1px solid var(--semantic-border)' }}
+      >
+        <td style={{ padding: '0.5rem 1rem' }}>
+          <code>{token}</code>
+        </td>
+        <td style={{ padding: '0.5rem 1rem' }}>{value}</td>
+        <td style={{ padding: '0.5rem 1rem' }}>
+          <code>{cssVar}</code>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>

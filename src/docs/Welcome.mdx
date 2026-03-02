@@ -30,29 +30,99 @@ CSS Variables + TS Constants
 
 ## Tech Stack
 
-| Tool                  | Role                                      |
-| --------------------- | ----------------------------------------- |
-| React 19              | UI framework                              |
-| TypeScript            | Type safety across components and tokens  |
-| Radix UI              | Headless, accessible component primitives |
-| Style Dictionary      | Design token transformation pipeline      |
-| Storybook 10          | Component documentation and controls      |
-| Vitest                | Unit and component test runner            |
-| React Testing Library | DOM-based component testing               |
-| CSS Modules           | Scoped, token-driven component styles     |
+<table
+  style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}
+>
+  <thead>
+    <tr style={{ borderBottom: '2px solid var(--semantic-border)' }}>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Tool
+      </th>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Role
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      ['React 19', 'UI framework'],
+      ['TypeScript', 'Type safety across components and tokens'],
+      ['Radix UI', 'Headless, accessible component primitives'],
+      ['Style Dictionary', 'Design token transformation pipeline'],
+      ['Storybook 10', 'Component documentation and controls'],
+      ['Vitest', 'Unit and component test runner'],
+      ['React Testing Library', 'DOM-based component testing'],
+      ['CSS Modules', 'Scoped, token-driven component styles'],
+    ].map(([tool, role]) => (
+      <tr
+        key={tool}
+        style={{ borderBottom: '1px solid var(--semantic-border)' }}
+      >
+        <td style={{ padding: '0.5rem 1rem', fontWeight: 500 }}>{tool}</td>
+        <td
+          style={{
+            padding: '0.5rem 1rem',
+            color: 'var(--semantic-muted-foreground)',
+          }}
+        >
+          {role}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
 
 ---
 
 ## Components
 
-| Component  | Description                                          |
-| ---------- | ---------------------------------------------------- |
-| Button     | Primary actions with variants, sizes, loading, icons |
-| Dialog     | Modal with focus trapping and animations             |
-| Select     | Keyboard-navigable dropdown                          |
-| Tooltip    | Accessible tooltip with placement options            |
-| Toast      | Notification system with imperative API              |
-| InputField | Form field with label, helper text, and error states |
+<table
+  style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}
+>
+  <thead>
+    <tr style={{ borderBottom: '2px solid var(--semantic-border)' }}>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Component
+      </th>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      ['Button', 'Primary actions with variants, sizes, loading, icons'],
+      ['Dialog', 'Modal with focus trapping and animations'],
+      ['Select', 'Keyboard-navigable dropdown'],
+      ['Tooltip', 'Accessible tooltip with placement options'],
+      ['Toast', 'Notification system with imperative API'],
+      ['InputField', 'Form field with label, helper text, and error states'],
+    ].map(([component, description]) => (
+      <tr
+        key={component}
+        style={{ borderBottom: '1px solid var(--semantic-border)' }}
+      >
+        <td style={{ padding: '0.5rem 1rem', fontWeight: 500 }}>{component}</td>
+        <td
+          style={{
+            padding: '0.5rem 1rem',
+            color: 'var(--semantic-muted-foreground)',
+          }}
+        >
+          {description}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
 
 ---
 

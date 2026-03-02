@@ -6,14 +6,111 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 Overview of all components in the Siklo Design System.
 
-| Component  | Status    | Tests | Radix | Description                                                                                              |
-| ---------- | --------- | ----- | ----- | -------------------------------------------------------------------------------------------------------- |
-| Button     | ✅ Stable | 13    | Yes   | Primary actions with variants, sizes, loading state, icon slots, and polymorphic rendering via `asChild` |
-| Dialog     | ✅ Stable | 7     | Yes   | Modal dialog with focus trapping, overlay, keyboard dismiss, and enter/exit animations                   |
-| Select     | ✅ Stable | 9     | Yes   | Keyboard-navigable dropdown with grouped items, check indicator, and popper positioning                  |
-| Tooltip    | ✅ Stable | 6     | Yes   | Accessible tooltip with configurable placement, delay, and arrow                                         |
-| Toast      | ✅ Stable | 7     | Yes   | Notification system with `useToast` hook, four variants, auto-dismiss, and swipe-to-dismiss              |
-| InputField | ✅ Stable | 12    | No    | Form field with auto-generated IDs, label, helper text, error states, and full ARIA wiring               |
+<table
+  style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}
+>
+  <thead>
+    <tr style={{ borderBottom: '2px solid var(--semantic-border)' }}>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Component
+      </th>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Status
+      </th>
+      <th
+        style={{
+          textAlign: 'center',
+          padding: '0.75rem 1rem',
+          fontWeight: 600,
+        }}
+      >
+        Tests
+      </th>
+      <th
+        style={{
+          textAlign: 'center',
+          padding: '0.75rem 1rem',
+          fontWeight: 600,
+        }}
+      >
+        Radix
+      </th>
+      <th
+        style={{ textAlign: 'left', padding: '0.75rem 1rem', fontWeight: 600 }}
+      >
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {[
+      [
+        'Button',
+        '✅ Stable',
+        '13',
+        'Yes',
+        'Primary actions with variants, sizes, loading state, icon slots, and polymorphic rendering via asChild',
+      ],
+      [
+        'Dialog',
+        '✅ Stable',
+        '7',
+        'Yes',
+        'Modal dialog with focus trapping, overlay, keyboard dismiss, and enter/exit animations',
+      ],
+      [
+        'Select',
+        '✅ Stable',
+        '9',
+        'Yes',
+        'Keyboard-navigable dropdown with grouped items, check indicator, and popper positioning',
+      ],
+      [
+        'Tooltip',
+        '✅ Stable',
+        '6',
+        'Yes',
+        'Accessible tooltip with configurable placement, delay, and arrow',
+      ],
+      [
+        'Toast',
+        '✅ Stable',
+        '7',
+        'Yes',
+        'Notification system with useToast hook, four variants, auto-dismiss, and swipe-to-dismiss',
+      ],
+      [
+        'InputField',
+        '✅ Stable',
+        '12',
+        'No',
+        'Form field with auto-generated IDs, label, helper text, error states, and full ARIA wiring',
+      ],
+    ].map(([component, status, tests, radix, description]) => (
+      <tr
+        key={component}
+        style={{ borderBottom: '1px solid var(--semantic-border)' }}
+      >
+        <td style={{ padding: '0.5rem 1rem', fontWeight: 500 }}>{component}</td>
+        <td style={{ padding: '0.5rem 1rem' }}>{status}</td>
+        <td style={{ padding: '0.5rem 1rem', textAlign: 'center' }}>{tests}</td>
+        <td style={{ padding: '0.5rem 1rem', textAlign: 'center' }}>{radix}</td>
+        <td
+          style={{
+            padding: '0.5rem 1rem',
+            color: 'var(--semantic-muted-foreground)',
+          }}
+        >
+          {description}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
 
 **Total: 54 unit tests + 34 Storybook tests = 88 tests**
 
