@@ -1,10 +1,11 @@
 /// <reference types="vitest/config" />
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { playwright } from '@vitest/browser-playwright'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { defineConfig } from 'vite'
+
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
-import { playwright } from '@vitest/browser-playwright'
 
 const dirname =
   typeof __dirname !== 'undefined'
