@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://orielmaliique.github.io/siklo/">Live Storybook</a>
+  <a href="https://aylabyuk.github.io/siklo-ui-lib/">Live Storybook</a>
 </p>
 
 ---
