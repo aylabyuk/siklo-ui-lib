@@ -2,8 +2,7 @@ import { Slot, Slottable } from '@radix-ui/react-slot'
 
 import styles from './Button.module.css'
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'destructive'
   size?: 'sm' | 'md' | 'lg'
   loading?: boolean

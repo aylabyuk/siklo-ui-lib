@@ -34,8 +34,9 @@ function DialogOverlay({
 
 /* -------------------------------- Content -------------------------------- */
 
-export interface DialogContentProps
-  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
+export interface DialogContentProps extends React.ComponentPropsWithoutRef<
+  typeof DialogPrimitive.Content
+> {
   overlayClassName?: string
   ref?: React.Ref<HTMLDivElement>
 }

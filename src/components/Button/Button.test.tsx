@@ -10,9 +10,7 @@ afterEach(() => cleanup())
 describe('Button', () => {
   it('renders with text', () => {
     render(<Button>Click me</Button>)
-    expect(
-      screen.getByRole('button', { name: 'Click me' }),
-    ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument()
   })
 
   it('applies variant data attribute', () => {
@@ -55,9 +53,10 @@ describe('Button', () => {
 
   it('sets aria-disabled when disabled', () => {
     render(<Button disabled>Disabled</Button>)
-    expect(
-      screen.getByRole('button', { name: 'Disabled' }),
-    ).toHaveAttribute('aria-disabled', 'true')
+    expect(screen.getByRole('button', { name: 'Disabled' })).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    )
   })
 
   it('prevents clicks when loading', async () => {
