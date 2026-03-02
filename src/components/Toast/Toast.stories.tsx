@@ -5,26 +5,30 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Button } from '../Button'
 import { ToastProvider, useToast } from './Toast'
 
-const ToastExample = figma.connect(ToastProvider, {
-  props: {
-    variant: figma.enum('Variant', {
-      Default: 'default',
-      Success: 'success',
-      Error: 'error',
-      Warning: 'warning',
-    }),
-    title: figma.string('Title'),
-    description: figma.string('Description'),
+const ToastExample = figma.connect(
+  ToastProvider,
+  'TODO: Add Figma component URL',
+  {
+    props: {
+      variant: figma.enum('Variant', {
+        Default: 'default',
+        Success: 'success',
+        Error: 'error',
+        Warning: 'warning',
+      }),
+      title: figma.string('Title'),
+      description: figma.string('Description'),
+    },
+    example: (props) => {
+      const { toast } = useToast()
+      toast({
+        title: props.title,
+        description: props.description,
+        variant: props.variant,
+      })
+    },
   },
-  example: (props) => {
-    const { toast } = useToast()
-    toast({
-      title: props.title,
-      description: props.description,
-      variant: props.variant,
-    })
-  },
-})
+)
 
 const meta = {
   title: 'Components/Toast',

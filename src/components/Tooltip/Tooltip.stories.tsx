@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Button } from '../Button'
 import { Tooltip, TooltipProvider } from './Tooltip'
 
-const TooltipExample = figma.connect(Tooltip, {
+const TooltipExample = figma.connect(Tooltip, 'TODO: Add Figma component URL', {
   props: {
     content: figma.string('Content'),
     side: figma.enum('Side', {

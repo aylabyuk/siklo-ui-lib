@@ -14,22 +14,26 @@ import {
   DialogTrigger,
 } from './Dialog'
 
-const DialogExample = figma.connect(DialogContent, {
-  props: {
-    title: figma.string('Title'),
-    description: figma.string('Description'),
+const DialogExample = figma.connect(
+  DialogContent,
+  'TODO: Add Figma component URL',
+  {
+    props: {
+      title: figma.string('Title'),
+      description: figma.string('Description'),
+    },
+    example: (props) => (
+      <Dialog>
+        <DialogTrigger>Open</DialogTrigger>
+        <DialogContent>
+          <DialogTitle>{props.title}</DialogTitle>
+          <DialogDescription>{props.description}</DialogDescription>
+          <DialogClose>Close</DialogClose>
+        </DialogContent>
+      </Dialog>
+    ),
   },
-  example: (props) => (
-    <Dialog>
-      <DialogTrigger>Open</DialogTrigger>
-      <DialogContent>
-        <DialogTitle>{props.title}</DialogTitle>
-        <DialogDescription>{props.description}</DialogDescription>
-        <DialogClose>Close</DialogClose>
-      </DialogContent>
-    </Dialog>
-  ),
-})
+)
 
 const meta = {
   title: 'Components/Dialog',

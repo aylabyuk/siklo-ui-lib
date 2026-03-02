@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Button } from './Button'
 
-const ButtonExample = figma.connect(Button, {
+const ButtonExample = figma.connect(Button, 'TODO: Add Figma component URL', {
   props: {
     variant: figma.enum('Variant', {
       Primary: 'primary',
