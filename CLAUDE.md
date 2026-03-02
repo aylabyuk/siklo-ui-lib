@@ -20,11 +20,11 @@ This project demonstrates the skills required for a Senior UI Developer role foc
 
 | Tool                  | Role                                      |
 | --------------------- | ----------------------------------------- |
-| React 18              | UI framework                              |
+| React 19              | UI framework                              |
 | TypeScript            | Type safety across components and tokens  |
 | Radix UI              | Headless, accessible component primitives |
 | Style Dictionary      | Design token transformation pipeline      |
-| Storybook 8           | Component documentation, controls, a11y   |
+| Storybook 10          | Component documentation, controls, a11y   |
 | Vitest                | Unit/component test runner                |
 | React Testing Library | DOM-based component testing               |
 | CSS Modules           | Scoped, token-driven component styles     |
@@ -144,7 +144,7 @@ We build this step by step. Each phase is self-contained — we verify it works 
 
 **What you'll learn:**
 
-- How Vite, Storybook 8, and Vitest are configured together
+- How Vite, Storybook 10, and Vitest are configured together
 - The role of each config file
 - Why we separate `.storybook/` from `src/`
 
@@ -714,14 +714,14 @@ npm run build             # Full pipeline: tokens → test → build
 | Figma Code Connect                        | Directly maps Figma component variants to React props; listed in CoLab's job posting as a desired skill |
 | Vitest over Jest                          | Faster, native ESM, integrates with Vite                                                                |
 | data-attributes for variants              | Cleaner than className strings, works well with CSS selectors                                           |
-| Storybook 8                               | Latest features: improved docs, faster builds, better TypeScript support                                |
+| Storybook 10                              | Latest features: improved docs, faster builds, better TypeScript support                                |
 
 ---
 
 ## Resources
 
 - [Radix UI Docs](https://www.radix-ui.com/primitives)
-- [Storybook 8 Docs](https://storybook.js.org/docs)
+- [Storybook Docs](https://storybook.js.org/docs)
 - [Style Dictionary Docs](https://styledictionary.com/getting-started/installation/)
 - [Tokens Studio Docs](https://docs.tokens.studio/)
 - [Figma Code Connect Docs](https://www.figma.com/developers/code-connect)
