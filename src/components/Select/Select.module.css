@@ -1,0 +1,152 @@
+/* Trigger — styled like an input field */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+  width: 100%;
+  min-width: 12rem;
+  height: 2.5rem;
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--semantic-background);
+  border: 1px solid var(--semantic-border);
+  border-radius: var(--radii-md);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--semantic-foreground);
+  cursor: pointer;
+  transition:
+    border-color var(--duration-normal) var(--easing-ease-in-out),
+    box-shadow var(--duration-normal) var(--easing-ease-in-out);
+}
+
+.trigger:hover:not(:disabled) {
+  border-color: var(--colors-slate-400);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--semantic-ring);
+  outline-offset: 2px;
+}
+
+.trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.trigger[data-placeholder] {
+  color: var(--semantic-muted-foreground);
+}
+
+/* Chevron icon */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--semantic-muted-foreground);
+  flex-shrink: 0;
+}
+
+/* Content — dropdown panel */
+.content {
+  z-index: 50;
+  overflow: hidden;
+  background-color: var(--semantic-background);
+  border: 1px solid var(--semantic-border);
+  border-radius: var(--radii-md);
+  box-shadow: var(--shadow-md);
+}
+
+.content[data-state='open'] {
+  animation: fadeIn var(--duration-normal) var(--easing-ease-out);
+}
+
+.content[data-state='closed'] {
+  animation: fadeOut var(--duration-fast) var(--easing-ease-in);
+}
+
+/* Viewport */
+.viewport {
+  padding: var(--spacing-1);
+}
+
+/* Popper positioning */
+.content[data-side='bottom'] {
+  --radix-select-content-transform-origin: top;
+}
+
+.content[data-side='top'] {
+  --radix-select-content-transform-origin: bottom;
+}
+
+/* Item */
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3) var(--spacing-2) var(--spacing-8);
+  border-radius: var(--radii-sm);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--semantic-foreground);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--duration-fast) var(--easing-ease-in-out);
+}
+
+.item[data-highlighted] {
+  background-color: var(--semantic-accent);
+  color: var(--semantic-accent-foreground);
+}
+
+.item[data-disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Check indicator */
+.itemIndicator {
+  position: absolute;
+  left: var(--spacing-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Group label */
+.label {
+  padding: var(--spacing-2) var(--spacing-3) var(--spacing-1) var(--spacing-8);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  color: var(--semantic-muted-foreground);
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
