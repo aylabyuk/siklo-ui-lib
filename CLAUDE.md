@@ -217,14 +217,9 @@ We build this step by step. Each phase is self-contained — we verify it works 
 2. Add npm scripts:
    - `"build:tokens": "style-dictionary build --config src/tokens/style-dictionary.config.ts"`
 3. Import `variables.css` in Storybook's `preview.ts` so all stories consume live tokens
-4. Create a Storybook docs page: "Design Tokens" that visualizes the token catalog:
-   - Color swatches showing primitive and semantic palettes
-   - Type scale preview with actual rendered text
-   - Spacing visualizer (boxes at each scale step)
-   - Shadow examples
-   - Include a link to the Figma file
+4. ~~Create a Storybook docs page~~ — **Deferred to Phase 9** (Storybook Documentation & Polish)
 
-**Checkpoint:** Run `npm run build:tokens` and see generated CSS + TS files. Open Storybook and see the Design Tokens documentation page with live token previews. Change a value in the exported JSON, rebuild, and see it update everywhere.
+**Checkpoint:** Run `npm run build:tokens` and see generated CSS + TS files. Change a value in the exported JSON, rebuild, and see it update everywhere.
 
 **What you'll learn:**
 - How Style Dictionary transforms and resolves token references
