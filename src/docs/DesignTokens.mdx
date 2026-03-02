@@ -169,59 +169,76 @@ Tokens are the atomic values that drive every component's appearance. They flow 
     marginBottom: '2rem',
   }}
 >
-  <div
-    style={{
-      fontSize: 'var(--font-size-2xl)',
-      fontWeight: 'var(--font-weight-bold)',
-      fontFamily: 'var(--font-family-display)',
-    }}
-  >
-    Display 2XL — The quick brown fox
-  </div>
-  <div
-    style={{
-      fontSize: 'var(--font-size-xl)',
-      fontWeight: 'var(--font-weight-semibold)',
-      fontFamily: 'var(--font-family-body)',
-    }}
-  >
-    XL Semibold — The quick brown fox
-  </div>
-  <div
-    style={{
-      fontSize: 'var(--font-size-lg)',
-      fontWeight: 'var(--font-weight-medium)',
-      fontFamily: 'var(--font-family-body)',
-    }}
-  >
-    LG Medium — The quick brown fox
-  </div>
-  <div
-    style={{
-      fontSize: 'var(--font-size-base)',
-      fontFamily: 'var(--font-family-body)',
-    }}
-  >
-    Base Regular — The quick brown fox jumps over the lazy dog
-  </div>
-  <div
-    style={{
-      fontSize: 'var(--font-size-sm)',
-      fontFamily: 'var(--font-family-body)',
-      color: 'var(--semantic-muted-foreground)',
-    }}
-  >
-    SM — The quick brown fox jumps over the lazy dog
-  </div>
-  <div
-    style={{
-      fontSize: 'var(--font-size-xs)',
-      fontFamily: 'var(--font-family-body)',
-      color: 'var(--semantic-muted-foreground)',
-    }}
-  >
-    XS — The quick brown fox jumps over the lazy dog
-  </div>
+  {[
+    {
+      label: 'Display 2XL',
+      size: '1.5rem',
+      weight: 700,
+      sample: 'The quick brown fox',
+    },
+    {
+      label: 'XL Semibold',
+      size: '1.25rem',
+      weight: 600,
+      sample: 'The quick brown fox',
+    },
+    {
+      label: 'LG Medium',
+      size: '1.125rem',
+      weight: 500,
+      sample: 'The quick brown fox',
+    },
+    {
+      label: 'Base Regular',
+      size: '1rem',
+      weight: 400,
+      sample: 'The quick brown fox jumps over the lazy dog',
+    },
+    {
+      label: 'SM',
+      size: '0.875rem',
+      weight: 400,
+      sample: 'The quick brown fox jumps over the lazy dog',
+      muted: true,
+    },
+    {
+      label: 'XS',
+      size: '0.75rem',
+      weight: 400,
+      sample: 'The quick brown fox jumps over the lazy dog',
+      muted: true,
+    },
+  ].map((item) => (
+    <div
+      key={item.label}
+      style={{
+        display: 'flex',
+        alignItems: 'baseline',
+        gap: '1rem',
+      }}
+    >
+      <span
+        style={{
+          fontSize: item.size,
+          fontWeight: item.weight,
+          fontFamily: 'Inter, system-ui, sans-serif',
+          color: item.muted ? 'var(--semantic-muted-foreground)' : 'inherit',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        {item.label} — {item.sample}
+      </span>
+      <span
+        style={{
+          fontSize: '0.7rem',
+          color: 'var(--semantic-muted-foreground)',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        {item.size}
+      </span>
+    </div>
+  ))}
 </div>
 
 <table
