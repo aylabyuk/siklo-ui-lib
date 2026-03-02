@@ -3,7 +3,10 @@
     "primary": { "$value": "{colors.blue.600}", "$type": "color" },
     "primary-foreground": { "$value": "{colors.white}", "$type": "color" },
     "secondary": { "$value": "{colors.slate.100}", "$type": "color" },
-    "secondary-foreground": { "$value": "{colors.slate.900}", "$type": "color" },
+    "secondary-foreground": {
+      "$value": "{colors.slate.900}",
+      "$type": "color"
+    },
     "destructive": { "$value": "{colors.red.600}", "$type": "color" },
     "destructive-foreground": { "$value": "{colors.white}", "$type": "color" },
     "muted": { "$value": "{colors.slate.100}", "$type": "color" },

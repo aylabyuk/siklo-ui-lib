@@ -1,6 +1,9 @@
 {
   "fontFamily": {
-    "display": { "$value": "Inter, system-ui, sans-serif", "$type": "fontFamily" },
+    "display": {
+      "$value": "Inter, system-ui, sans-serif",
+      "$type": "fontFamily"
+    },
     "body": { "$value": "Inter, system-ui, sans-serif", "$type": "fontFamily" }
   },
   "fontSize": {
