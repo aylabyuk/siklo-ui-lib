@@ -1,10 +1,36 @@
+import figma from '@figma/code-connect'
+
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Button } from '../Button'
 import { Tooltip, TooltipProvider } from './Tooltip'
 
+const TooltipExample = figma.connect(Tooltip, {
+  props: {
+    content: figma.string('Content'),
+    side: figma.enum('Side', {
+      Top: 'top',
+      Right: 'right',
+      Bottom: 'bottom',
+      Left: 'left',
+    }),
+  },
+  example: (props) => (
+    <Tooltip content={props.content} side={props.side}>
+      <button>Hover me</button>
+    </Tooltip>
+  ),
+})
+
 const meta = {
   title: 'Components/Tooltip',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'TODO: Add Figma component URL',
+      examples: [TooltipExample],
+    },
+  },
   decorators: [
     (Story) => (
       <TooltipProvider delayDuration={200}>

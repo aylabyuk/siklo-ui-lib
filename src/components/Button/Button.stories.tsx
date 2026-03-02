@@ -1,10 +1,48 @@
+import figma from '@figma/code-connect'
+
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Button } from './Button'
 
+const ButtonExample = figma.connect(Button, {
+  props: {
+    variant: figma.enum('Variant', {
+      Primary: 'primary',
+      Secondary: 'secondary',
+      Ghost: 'ghost',
+      Destructive: 'destructive',
+    }),
+    size: figma.enum('Size', {
+      Small: 'sm',
+      Medium: 'md',
+      Large: 'lg',
+    }),
+    disabled: figma.boolean('Disabled'),
+    loading: figma.boolean('Loading'),
+    label: figma.string('Label'),
+  },
+  example: (props) => (
+    <Button
+      variant={props.variant}
+      size={props.size}
+      disabled={props.disabled}
+      loading={props.loading}
+    >
+      {props.label}
+    </Button>
+  ),
+})
+
 const meta = {
   title: 'Components/Button',
   component: Button,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'TODO: Add Figma component URL',
+      examples: [ButtonExample],
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',

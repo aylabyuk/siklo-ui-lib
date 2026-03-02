@@ -1,3 +1,5 @@
+import figma from '@figma/code-connect'
+
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -12,9 +14,33 @@ import {
   DialogTrigger,
 } from './Dialog'
 
+const DialogExample = figma.connect(DialogContent, {
+  props: {
+    title: figma.string('Title'),
+    description: figma.string('Description'),
+  },
+  example: (props) => (
+    <Dialog>
+      <DialogTrigger>Open</DialogTrigger>
+      <DialogContent>
+        <DialogTitle>{props.title}</DialogTitle>
+        <DialogDescription>{props.description}</DialogDescription>
+        <DialogClose>Close</DialogClose>
+      </DialogContent>
+    </Dialog>
+  ),
+})
+
 const meta = {
   title: 'Components/Dialog',
   component: Dialog,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'TODO: Add Figma component URL',
+      examples: [DialogExample],
+    },
+  },
 } satisfies Meta<typeof Dialog>
 
 export default meta

@@ -1,3 +1,5 @@
+import figma from '@figma/code-connect'
+
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -12,9 +14,35 @@ import {
   SelectValue,
 } from './Select'
 
+const SelectExample = figma.connect(SelectTrigger, {
+  props: {
+    placeholder: figma.string('Placeholder'),
+    disabled: figma.boolean('Disabled'),
+  },
+  example: (props) => (
+    <Select disabled={props.disabled}>
+      <SelectTrigger>
+        <SelectValue placeholder={props.placeholder} />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="option-1">Option 1</SelectItem>
+        <SelectItem value="option-2">Option 2</SelectItem>
+        <SelectItem value="option-3">Option 3</SelectItem>
+      </SelectContent>
+    </Select>
+  ),
+})
+
 const meta = {
   title: 'Components/Select',
   component: Select,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'TODO: Add Figma component URL',
+      examples: [SelectExample],
+    },
+  },
 } satisfies Meta<typeof Select>
 
 export default meta
