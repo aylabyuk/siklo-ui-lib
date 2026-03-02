@@ -45,6 +45,24 @@ const meta = {
       examples: [DialogExample],
     },
   },
+  argTypes: {
+    open: {
+      description: 'Controlled open state of the dialog.',
+      control: 'boolean',
+    },
+    defaultOpen: {
+      description: 'The initial open state when uncontrolled.',
+      control: 'boolean',
+    },
+    onOpenChange: {
+      description: 'Callback fired when the open state changes.',
+    },
+    modal: {
+      description:
+        'Whether the dialog blocks interaction with the rest of the page.',
+      control: 'boolean',
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Dialog>
 

@@ -24,11 +24,40 @@ const TooltipExample = figma.connect(Tooltip, 'TODO: Add Figma component URL', {
 
 const meta = {
   title: 'Components/Tooltip',
+  component: Tooltip,
   parameters: {
     design: {
       type: 'figma',
       url: 'TODO: Add Figma component URL',
       examples: [TooltipExample],
+    },
+  },
+  argTypes: {
+    content: {
+      description: 'The content displayed inside the tooltip popup.',
+    },
+    side: {
+      description: 'Which side of the trigger the tooltip appears on.',
+      control: 'select',
+      options: ['top', 'right', 'bottom', 'left'],
+    },
+    align: {
+      description: 'Alignment of the tooltip relative to the trigger.',
+      control: 'select',
+      options: ['start', 'center', 'end'],
+    },
+    delayDuration: {
+      description:
+        'Milliseconds to wait before showing the tooltip. Overrides the provider default.',
+      control: 'number',
+    },
+    open: { description: 'Controlled open state.', control: 'boolean' },
+    defaultOpen: {
+      description: 'The initial open state when uncontrolled.',
+      control: 'boolean',
+    },
+    onOpenChange: {
+      description: 'Callback when the open state changes.',
     },
   },
   decorators: [
@@ -43,7 +72,7 @@ const meta = {
     ),
   ],
   tags: ['autodocs'],
-} satisfies Meta
+} satisfies Meta<typeof Tooltip>
 
 export default meta
 type Story = StoryObj<typeof meta>

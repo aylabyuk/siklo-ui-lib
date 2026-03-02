@@ -39,6 +39,23 @@ const meta = {
       examples: [InputFieldExample],
     },
   },
+  argTypes: {
+    label: { description: 'Visible label text.' },
+    helperText: { description: 'Optional helper text shown below the input.' },
+    error: {
+      description:
+        'Error message — replaces helper text and marks the input as invalid.',
+    },
+    required: {
+      description: 'Marks the field as required with an asterisk indicator.',
+      control: 'boolean',
+    },
+    disabled: {
+      description: 'Prevents interaction with the input.',
+      control: 'boolean',
+    },
+    id: { description: 'Explicit id — auto-generated if omitted.' },
+  },
   args: {
     label: 'Email',
   },

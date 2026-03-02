@@ -45,15 +45,31 @@ const meta = {
   },
   argTypes: {
     variant: {
+      description: 'The visual style of the button.',
       control: 'select',
       options: ['primary', 'secondary', 'ghost', 'destructive'],
     },
     size: {
+      description: 'The size of the button.',
       control: 'select',
       options: ['sm', 'md', 'lg'],
     },
-    loading: { control: 'boolean' },
-    disabled: { control: 'boolean' },
+    loading: {
+      description:
+        'Shows a spinner and disables interactions while preserving button width.',
+      control: 'boolean',
+    },
+    disabled: {
+      description: 'Prevents interaction and applies disabled styling.',
+      control: 'boolean',
+    },
+    iconLeft: { description: 'Icon element rendered before the button label.' },
+    iconRight: { description: 'Icon element rendered after the button label.' },
+    asChild: {
+      description:
+        'Merges props onto the child element instead of rendering a `<button>`. Useful for rendering as an anchor or router link.',
+      control: 'boolean',
+    },
   },
   args: {
     children: 'Button',

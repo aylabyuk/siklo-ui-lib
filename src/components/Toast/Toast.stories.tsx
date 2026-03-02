@@ -32,11 +32,19 @@ const ToastExample = figma.connect(
 
 const meta = {
   title: 'Components/Toast',
+  component: ToastProvider,
   parameters: {
     design: {
       type: 'figma',
       url: 'TODO: Add Figma component URL',
       examples: [ToastExample],
+    },
+  },
+  argTypes: {
+    duration: {
+      description:
+        'Default auto-dismiss duration in milliseconds. Individual toasts can override this.',
+      control: 'number',
     },
   },
   decorators: [
@@ -47,7 +55,7 @@ const meta = {
     ),
   ],
   tags: ['autodocs'],
-} satisfies Meta
+} satisfies Meta<typeof ToastProvider>
 
 export default meta
 type Story = StoryObj<typeof meta>

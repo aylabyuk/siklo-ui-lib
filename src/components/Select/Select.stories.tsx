@@ -47,6 +47,18 @@ const meta = {
       examples: [SelectExample],
     },
   },
+  argTypes: {
+    value: { description: 'The controlled selected value.' },
+    defaultValue: { description: 'The initial value when uncontrolled.' },
+    onValueChange: {
+      description: 'Callback fired when the selected value changes.',
+    },
+    disabled: {
+      description: 'Prevents interaction with the select.',
+      control: 'boolean',
+    },
+    name: { description: 'The name attribute for form submission.' },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Select>
 
